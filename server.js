@@ -5,6 +5,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const roomHandler = require("./socket/roomHandler");
+const signalingHandler = require("./socket/signalingHandler");
 
 const app = express();
 
@@ -24,6 +25,7 @@ io.on("connection",(socket)=>{
     console.log("Connected :",socket.id);
 
     roomHandler(io,socket);
+    signalingHandler(io, socket);
 
 });
 
