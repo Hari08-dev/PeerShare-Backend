@@ -1,11 +1,10 @@
-module.exports = function(io, socket) {
-
+module.exports = function (io, socket) {
 
     socket.on("offer", ({ target, offer }) => {
 
         io.to(target).emit("offer", {
             sender: socket.id,
-            offer
+            offer,
         });
 
     });
@@ -14,7 +13,7 @@ module.exports = function(io, socket) {
 
         io.to(target).emit("answer", {
             sender: socket.id,
-            answer
+            answer,
         });
 
     });
@@ -23,7 +22,7 @@ module.exports = function(io, socket) {
 
         io.to(target).emit("ice-candidate", {
             sender: socket.id,
-            candidate
+            candidate,
         });
 
     });
